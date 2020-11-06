@@ -17,6 +17,6 @@ jobs:
         env:
           DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
         run: |
-          echo "$DOCKER_LOGIN" | docker login us.icr.io -u "iamapikey --password-stdin
+          echo "$DOCKER_LOGIN" | docker login us.icr.io -u "iamapikey" --password-stdin
           docker build .
 
