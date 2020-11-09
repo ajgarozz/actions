@@ -21,6 +21,20 @@ jobs:
           
           npm install --save-dev jest
           npm test
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a multi-line script
+        env:
+          DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+        run: |
+          set -xe
+          
+          npm install dockerlint
+          dockerlint -f Dockerfile
 
   build:
     runs-on: ubuntu-latest
