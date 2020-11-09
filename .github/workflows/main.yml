@@ -33,7 +33,7 @@ jobs:
         run: |
           set -xe
           
-          npm install -g dockerlint
+          sudo npm install -g dockerlint
           dockerlint -f Dockerfile
 
   build:
