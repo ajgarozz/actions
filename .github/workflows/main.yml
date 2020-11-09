@@ -7,6 +7,20 @@ on:
     branches: [ main ]
 
 jobs:
+  unit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a multi-line script
+        env:
+          DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
+        run: |
+          set -xe
+          
+          npm test
+
   build:
     runs-on: ubuntu-latest
 
